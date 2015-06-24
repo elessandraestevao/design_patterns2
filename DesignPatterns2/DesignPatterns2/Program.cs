@@ -1,5 +1,6 @@
 ﻿using DesignPatterns2.Cap1;
 using DesignPatterns2.Cap2;
+using DesignPatterns2.Cap3;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,22 @@ namespace DesignPatterns2
     class Program
     {
         static void Main(string[] args)
+        {
+            Historico historico = new Historico();
+            Contrato c = new Contrato(DateTime.Now, "Elessandra", TipoContrato.NOVO);
+            historico.Adiciona(c);
+
+            c.Avanca();
+            historico.Adiciona(c);
+            
+            c.Avanca();
+            historico.Adiciona(c);
+
+            Console.WriteLine(historico.Pega(2).Tipo);
+            Console.ReadKey();
+        }
+
+        private void testaNotasMusicais()
         {
             NotasMusicais notas = new NotasMusicais();
             IList<INota> musica = new List<INota>(){
