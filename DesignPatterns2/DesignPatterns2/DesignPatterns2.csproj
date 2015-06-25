@@ -55,12 +55,20 @@
     <Compile Include="Cap3\Contrato.cs" />
     <Compile Include="Cap3\Historico.cs" />
     <Compile Include="Cap3\TipoContrato.cs" />
+    <Compile Include="Cap4\Divisao.cs" />
+    <Compile Include="Cap4\IExpressao.cs" />
+    <Compile Include="Cap4\Multiplicacao.cs" />
+    <Compile Include="Cap4\Numero.cs" />
+    <Compile Include="Cap4\RaizQuadrada.cs" />
+    <Compile Include="Cap4\Soma.cs" />
+    <Compile Include="Cap4\Subtracao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
