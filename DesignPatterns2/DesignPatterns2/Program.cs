@@ -16,14 +16,16 @@ namespace DesignPatterns2
         {
             Historico historico = new Historico();
             Contrato c = new Contrato(DateTime.Now, "Elessandra", TipoContrato.NOVO);
-            historico.Adiciona(c);
+            historico.Adiciona(c.SalvaEstado());
 
             c.Avanca();
-            historico.Adiciona(c);
+            historico.Adiciona(c.SalvaEstado());
             
             c.Avanca();
-            historico.Adiciona(c);
+            historico.Adiciona(c.SalvaEstado());
 
+            Console.WriteLine(historico.Pega(0).Tipo);
+            Console.WriteLine(historico.Pega(1).Tipo);
             Console.WriteLine(historico.Pega(2).Tipo);
             Console.ReadKey();
         }

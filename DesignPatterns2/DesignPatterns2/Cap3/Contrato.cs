@@ -25,6 +25,11 @@ namespace DesignPatterns2
             if (this.Tipo == TipoContrato.NOVO) this.Tipo = TipoContrato.EM_ANDAMENTO;
             else if (this.Tipo == TipoContrato.EM_ANDAMENTO) this.Tipo = TipoContrato.ACERTADO;
             else if (this.Tipo == TipoContrato.ACERTADO) this.Tipo = TipoContrato.CONCLUIDO;
-        }        
+        }
+
+        public Contrato SalvaEstado()
+        {
+            return new Contrato(this.Data, this.Cliente, this.Tipo);
+        }
     }
 }
