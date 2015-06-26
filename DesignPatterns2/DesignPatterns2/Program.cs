@@ -2,6 +2,7 @@
 using DesignPatterns2.Cap2;
 using DesignPatterns2.Cap3;
 using DesignPatterns2.Cap4;
+using DesignPatterns2.Cap5;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,14 +16,48 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            IExpressao raizQuadrada = new RaizQuadrada(new Numero(81));
-            Console.WriteLine(raizQuadrada.Avalia());
+            
+        }
 
-            IExpressao multiplicacao = new Multiplicacao((new Subtracao(new Numero(50), new Numero(45))), new Numero(30));
+        private void testaPreFixaVisitor()
+        {
+            Multiplicacao multiplicacao = new Multiplicacao((new Subtracao(new Numero(50), new Numero(45))), new Numero(30));
+            IVisitor visitor2 = new PreFixaVisitor();
+            visitor2.ImprimeMultiplicacao(multiplicacao);
+            Console.WriteLine();
+            Console.WriteLine(multiplicacao.Avalia());
+        }
+
+        private void testaImpressoraVisitor()
+        {
+            RaizQuadrada raizQuadrada = new RaizQuadrada(new Numero(81));
+            IVisitor visitor1 = new ImpressoraVisitor();
+            visitor1.ImprimeRaizQuadrada(raizQuadrada);
+            Console.WriteLine();
+            Console.WriteLine(raizQuadrada.Avalia());
+            Console.WriteLine();
+
+            Multiplicacao multiplicacao = new Multiplicacao((new Subtracao(new Numero(50), new Numero(45))), new Numero(30));
+            IVisitor visitor2 = new ImpressoraVisitor();
+            visitor2.ImprimeMultiplicacao(multiplicacao);
+            Console.WriteLine();
             Console.WriteLine(multiplicacao.Avalia());
 
-            IExpressao divisao = new Divisao((new Subtracao(new Numero(50), new Numero(50))), new Numero(30));
+            Console.WriteLine();
+
+            Divisao divisao = new Divisao((new Subtracao(new Numero(50), new Numero(50))), new Numero(30));
+            IVisitor visitor3 = new ImpressoraVisitor();
+            visitor3.ImprimeDivisao(divisao);
+            Console.WriteLine();
             Console.WriteLine(divisao.Avalia());
+        }
+
+        private void testaInterpreter(){
+            IExpressao soma = new Soma(new Numero(10), new Numero(15));
+            Console.WriteLine(soma.Avalia());
+
+            IExpressao subtracao = new Subtracao(new Numero(10), new Numero(15));
+            Console.WriteLine(subtracao.Avalia());
         }
 
         private void testaHistorico()

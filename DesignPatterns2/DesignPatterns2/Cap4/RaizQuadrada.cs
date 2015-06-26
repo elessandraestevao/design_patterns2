@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatterns2.Cap5;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,20 @@ namespace DesignPatterns2.Cap4
 {
     public class RaizQuadrada : IExpressao
     {
-        private IExpressao expressao;
+        public IExpressao Expressao;
         public RaizQuadrada(IExpressao expressao)
         {
-            this.expressao = expressao;
+            this.Expressao = expressao;
         }
 
         public int Avalia()
         {
-            return (int) Math.Sqrt(this.expressao.Avalia());
+            return (int) Math.Sqrt(this.Expressao.Avalia());
+        }
+
+        public void Aceita(IVisitor visitor)
+        {
+            visitor.ImprimeRaizQuadrada(this);
         }
     }
 }
