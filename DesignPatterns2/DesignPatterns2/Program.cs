@@ -5,6 +5,7 @@ using DesignPatterns2.Cap4;
 using DesignPatterns2.Cap5;
 using DesignPatterns2.Cap6;
 using DesignPatterns2.Cap7;
+using DesignPatterns2.Cap8;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,6 +20,15 @@ namespace DesignPatterns2
         static void Main(string[] args)
         {
             
+        }
+
+        private void testaAdapter()
+        {
+            Cliente cliente = new Cliente();
+            cliente.Nome = "Elessandra";
+            cliente.Endereco = "Rua das Palmas";
+            cliente.DataDenascimento = new DateTime(1987, 06, 08);
+            Console.WriteLine(new GeradorDeXml().GeraXml(cliente));
         }
 
         private void testaCommand()
