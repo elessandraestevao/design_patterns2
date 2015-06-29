@@ -4,6 +4,7 @@ using DesignPatterns2.Cap3;
 using DesignPatterns2.Cap4;
 using DesignPatterns2.Cap5;
 using DesignPatterns2.Cap6;
+using DesignPatterns2.Cap7;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,17 @@ namespace DesignPatterns2
         static void Main(string[] args)
         {
             
+        }
+
+        private void testaCommand()
+        {
+            Pedido pedido1 = new Pedido("Elessandra", 500.0);
+            Pedido pedido2 = new Pedido("Aparecida", 300.0);
+            FilaDeTrabalho fila = new FilaDeTrabalho();
+            fila.Adiciona(new PagaPedido(pedido1));
+            fila.Adiciona(new PagaPedido(pedido2));
+            fila.Adiciona(new FinalizaPedido(pedido1));
+            fila.Processa();
         }
 
         private void testaBridge()
