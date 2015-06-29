@@ -3,6 +3,7 @@ using DesignPatterns2.Cap2;
 using DesignPatterns2.Cap3;
 using DesignPatterns2.Cap4;
 using DesignPatterns2.Cap5;
+using DesignPatterns2.Cap6;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,6 +18,14 @@ namespace DesignPatterns2
         static void Main(string[] args)
         {
             
+        }
+
+        private void testaBridge()
+        {
+            IMensagem mensagem = new MensagemCliente("Elessandra");
+            IEnviador enviador = new EnviaPorEmail();
+            mensagem.Enviador = enviador;
+            mensagem.Envia();
         }
 
         private void testaPreFixaVisitor()
